@@ -24,6 +24,7 @@ As you can see by the tutorial flow what we have done above.
 1) `SetFlowVariable`
 2)  `Var Calculations` plugin to +1 to Variable
 3)   `Var Calculations` plugin to multiply variable x5
+
 ![alt text](https://github.com/digitalassassins/TdarrMathsPlugins/blob/main/screenshots/4-Calculation-Tutorial.png?raw=true "Tdarr Math Plugin Tutorial")
 
 When we check the Job Log, we can see that the plugin has completed the calculation.
@@ -33,9 +34,15 @@ The same for the multiplication calculation.
 ![alt text](https://github.com/digitalassassins/TdarrMathsPlugins/blob/main/screenshots/6-Calculation-MultiplyLogFeedback.png?raw=true "Add SetFlowVariable and change the settings")
 
 ## How to Use Greater / Less Than Plugin
-
+We add the Greater/Less Than plugin to the page, the settings are self-explanatory. The first number is the first number we want to check against the second number. in the first or second number to check variables, you must type the full variable: e.g. `{{{args.variables.user.myVariable}}}`. This allows us to match against not just the Local flow variables but the Global and Library variables as well.
+So for instance, you could check if a number is greater than the video file duration using `{{{args.inputFileObj.ffProbeData.format.duration}}}`
 ![alt text](https://github.com/digitalassassins/TdarrMathsPlugins/blob/main/screenshots/21-GreaterLess-PluginSettings.png?raw=true "Add Tdarr Calculation Plugin, Tdarr add a number to a variable")
 
+As you can see from this tutorial adding on from the last example, we can now create a count loop.
+1) We add a `SetFlowVariable` and set this to 0
+2) We use the `Greater / Less Than` plugin to run a check to see if the count is 10.
+3) We then use the `Var Calculation` plugin to +1 to the count.
+4) Once the count is greater than 10, the `Greater / Less Than` plugin will then break out to the next flow.
 ![alt text](https://github.com/digitalassassins/TdarrMathsPlugins/blob/main/screenshots/22-GreaterLess-Tutorial.png?raw=true "Add Tdarr Calculation Plugin, Tdarr add a number to a variable")
 
 ## How to Use Odd/Even Plugin
