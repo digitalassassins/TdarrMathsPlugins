@@ -65,4 +65,10 @@ You can see from the tutorial image below, that we are going to do something sim
 
 
 
-### Real World Usage Examples
+![alt text](https://github.com/digitalassassins/TdarrMathsPlugins/blob/main/screenshots/41-ArrayLoop-PluginSettings.png "Add Tdarr Calculation Plugin, Tdarr add a number to a variable")
+
+
+
+![alt text](https://github.com/digitalassassins/TdarrMathsPlugins/blob/main/screenshots/42-ArrayLoop-Tutorial.png "Add Tdarr Calculation Plugin, Tdarr add a number to a variable")
+
+## Real World Usage Examples
