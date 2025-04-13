@@ -35,7 +35,7 @@ The same for the multiplication calculation.
 
 ## How to Use Greater / Less Than Plugin
 We add the Greater/Less Than plugin to the page, the settings are self-explanatory. The first number is the first number we want to check against the second number. in the text box for the first or second number, if you would like to check variables, you must type the full variable: e.g. `{{{args.variables.user.myVariable}}}`. This allows us to match against not just the Local flow variables but the Global and Library variables as well.
-So for instance, you could check if a number is greater than the video file duration using `{{{args.inputFileObj.ffProbeData.format.duration}}}`
+So for instance, you could check if a number is greater than the video file duration using `{{{args.inputFileObj.ffProbeData.format.duration}}}` in the second number field.
 ![alt text](https://github.com/digitalassassins/TdarrMathsPlugins/blob/main/screenshots/21-GreaterLess-PluginSettings.png "Add Tdarr Calculation Plugin, Tdarr add a number to a variable")
 
 As you can see from this tutorial adding on from the last example, we can now create a count loop.
@@ -47,9 +47,10 @@ As you can see from this tutorial adding on from the last example, we can now cr
 ![alt text](https://github.com/digitalassassins/TdarrMathsPlugins/blob/main/screenshots/22-GreaterLess-Tutorial.png "Add Tdarr Calculation Plugin, Tdarr add a number to a variable")
 
 ## How to Use Odd/Even Plugin
-
+When we add the plugin to the flow, we can then edit the plugin settings. Again it's pretty self-explanatory, We add the number we want to check if it's Odd or Even into the Check Number box. Again if you would like to check variables, you must type the full variable: e.g. `{{{args.variables.user.myVariable}}}`. This allows us to match against not just the Local flow variables but also the Global and Library variables. If the number is Even it exits through point 1, if the number is odd, it exits through point 2.
 ![alt text](https://github.com/digitalassassins/TdarrMathsPlugins/blob/main/screenshots/31-OddEven-PluginSettings.png "Add Tdarr Calculation Plugin, Tdarr add a number to a variable")
 
+You can see from the tutorial image below, that we are going to do something similar with the `Var Calculation` plugin. We will set the variable as 2 and check if its odd or even. it will be Even so exit from point 1. We will then use the `Var Calculation` plugin to add one to the number, to make it an Odd number so it can progress. Why would we need an Even / Odd checker? FFMPEG Filters such as `dynaudnorm`, `atadenoise`, `convolution`, `nlmeans`, `nlmeans_vulkan` require only an odd number within a range otherwise FFMPEG will fail and spit out an error message. checking the input before we pass it to the CLI is useful to ensure it doesn't break our code. Especially when using automated calculations on the filter values.
 ![alt text](https://github.com/digitalassassins/TdarrMathsPlugins/blob/main/screenshots/32-OddEven-Tutorial.png "Add Tdarr Calculation Plugin, Tdarr add a number to a variable")
 
 ## How to Use ArrayLoop Plugin
