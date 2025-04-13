@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.plugin = exports.details = void 0;
 /* eslint no-plusplus: ["error", { "allowForLoopAfterthoughts": true }] */
-var rndString = Math.random().toString(36).slice(2, 10);
+//var rndString = Math.random().toString(36).slice(2, 10);
 var details = function () { return ({
 	id: 'mitsie_array_loop',
 	name: 'Array Loop',
@@ -29,7 +29,7 @@ var details = function () { return ({
 		{
 			name: 'UID',
 			type: 'string', // set the data type of the input ('string', 'number', 'boolean')
-			defaultValue: rndString, // set the default value of the input incase the user enters no input
+			defaultValue: '', // set the default value of the input incase the user enters no input
 			inputUI: {
 				type: 'text', // specify how the input UI will appear to the user ('text' or 'dropdown')
 			},
@@ -61,8 +61,7 @@ var plugin = function (args) {
     }
 	
 	var UIDCount = String(args.inputs.UID).trim(). concat('-mArrayCount');
-	
-	if(Object.keys(args.variables.user[UIDCount] || {}).length === 0 || args.variables.user[UIDCount] === "undefined" || args.variables.user[UIDCount] === NaN){
+	if(typeof args.variables.user[UIDCount] === "undefined" || args.variables.user[UIDCount] === NaN){
 		args.variables.user[UIDCount] = parseInt(0);
 		args.jobLog("Setting Array Count To Zero: ". concat( args.variables.user[UIDCount] ) );
 	}
@@ -84,9 +83,7 @@ var plugin = function (args) {
 		args.jobLog("- ". concat( akey, " : ", avalue ) );
 	}
 	
-	
-	
-	if(args.variables.user[UIDCount] < (Object.keys(assocArray || {}).length - 1) ){
+	if(args.variables.user[UIDCount] < Object.keys(assocArray || {}).length ){
 		
 		// eslint-disable-next-line no-param-reassign
 		args.variables.user.ArrayLoopValue = String(assocArray[ args.variables.user[UIDCount] ]).trim();
@@ -106,7 +103,7 @@ var plugin = function (args) {
 		
 	}else{
 		
-		args.variables.user.mArrayCount = String(0);
+		args.variables.user[UIDCount] = String(0);
 		
 		return {
 			outputFileObj: args.inputFileObj,
