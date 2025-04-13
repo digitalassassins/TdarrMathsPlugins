@@ -71,4 +71,8 @@ You can see from the tutorial image below, that we are going to do something sim
 
 ![alt text](https://github.com/digitalassassins/TdarrMathsPlugins/blob/main/screenshots/42-ArrayLoop-Tutorial.png "Add Tdarr Calculation Plugin, Tdarr add a number to a variable")
 
+## How to Use Variable Concatenation Plugin
+
+
+
 ## Real World Usage Examples
