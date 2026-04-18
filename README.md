@@ -1,6 +1,6 @@
 # TdarrMathsPlugins - Mathematic Plugins for Tdarr
 
-just add the **`tools`** folder from this repository to your local flows folder
+just add the **`tools`** and **`video`** folder from this repository to your local flows folder
 
 {Tdarr install folder}\server\Tdarr\Plugins\FlowPlugins\LocalFlowPlugins
 
