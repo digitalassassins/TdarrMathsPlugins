@@ -17,6 +17,7 @@ var details = function () { return ({
 	icon: 'faQuestion',
 	inputs: [
 		{
+			label: 'Number Value',
 			name: 'NumberValue',
 			type: 'number', // set the data type of the input ('string', 'number', 'boolean')
 			defaultValue: '', // set the default value of the input incase the user enters no input
@@ -26,6 +27,7 @@ var details = function () { return ({
 			tooltip: 'Crf Rating to Check against e.g. 23.', // Each line following `Example:` will be clearly formatted. \\n used for line breaks
 		},		
 		{
+			label: 'Greater Or Less?',
 			name: 'GreaterOrLess',
 			type: 'string',
 			defaultValue: '',
@@ -106,14 +108,27 @@ var plugin = function (args) {
 	// add the crf to a variable we can use later
 	if (!args.variables.crf_rating) {
         // eslint-disable-next-line no-param-reassign
-        args.variables.crf_rating = {};
+        args.variables.crf_rating = null;
+		
+		
     }
+	// add the crf to a object we can use later
+	if (!args.variables.file_crf_rating) {
+		args.variables.file_crf_rating = {};
+	}
+	
+	if (!args.variables.file_crf_rating[args.originalLibraryFile.DB]) {
+		args.variables.file_crf_rating[args.originalLibraryFile.DB] = null;
+	}
 	// now we check if the number is greater, less than or equal to if its not null:
 	if(crf_rating != null){
 		
 		crf_rating = parseInt(crf_rating);
 		var check_num = parseInt(args.inputs.NumberValue);
+		// store CRF ratings in a variable for outside the plugin
 		args.variables.crf_rating = crf_rating;
+		args.variables.file_crf_rating[args.originalLibraryFile.DB] = crf_rating;
+		
 		var math_operator = args.inputs.GreaterOrLess;
 		
 		if(math_operator == "Greater Than >"){
@@ -205,6 +220,7 @@ var plugin = function (args) {
 	}else{
 		
 		args.jobLog("CRF Rating is Not Found!");
+		args.variables.crf_rating = null;
 		
 		return {
 			outputFileObj: args.inputFileObj,
