@@ -185,7 +185,7 @@ const checkVideoFilesRemaining = function(dir){
 		
 		if(video_files_remaining > 0){
 			return true;
-		else{
+		}else{
 			return false;
 		}
 		
